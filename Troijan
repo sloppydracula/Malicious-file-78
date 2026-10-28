@@ -22,7 +22,7 @@ This repository contains a comprehensive analysis report of multiple suspicious 
 *   **Size:** 12.55 MB
 *   **File Type:** PE32 executable (GUI)
 *   **Digital Signature:** Present (Signed)
-*   **SHA-256:** `e4550793f6c7fb6363cd1fb2f58c9195743d88d792dc231056b3ab9ca0234624`
+*   **HA-256:** `e4550793f6c7fb6363cd1fb2f58c9195743d88d792dc231056b3ab9ca0234624`
 
 ### 📈 Detection Results
 *   **VirusTotal:** 8/66 security vendors flagged this file.
