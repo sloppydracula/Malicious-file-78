@@ -29,6 +29,8 @@ This repository contains a comprehensive analysis report of multiple suspicious 
 *   **Hatching Triage Score:** 7/10 (Suspicious).
 *   **Threat Labels:** `adware.playanex/bundleinstaller`, `playanex`, `filezillasponsored`.
 
+https://ibb.co/M448nz3
+
 ### ⚠️ Static Analysis Conclusion
 Despite having a digital signature, this is **not** the official installer. The word "sponsored" indicates it attempts to install third-party Adware alongside the main program. Triage flagged it with `STEALER` and `SPYWARE` tags.
 
@@ -44,7 +46,9 @@ Further investigation on the same site revealed a much more dangerous threat hid
 *   **SHA-256:** `665cca285680df321b63ad5106b167db9169afe30c17d349d80682837edcc755`
 *   **VirusTotal Detection:** **38/68** security vendors flagged this archive as malicious.
 *   **Threat Labels:** `trojan.tedy/abapplication`, `spreader`, `trojan`
-
+    665cca285680df321b63ad5106b167db9169afe30c17d349d80682837edcc755 — trojanized FileZilla archive (FileZilla_3.69.5_win64.zip)
+    e4c6f8ee8c946c6bd7873274e6ed9e41dec97e05890fa99c73f4309b60fd3da4 — trojanized version.dll contained in the archive
+https://ibb.co/PsGwwrns
 ### 📊 Sample Details (Extracted DLL)
 Inside the archive, a highly malicious DLL was identified:
 *   **File Name:** `version.dll`
@@ -53,7 +57,7 @@ Inside the archive, a highly malicious DLL was identified:
 *   **VirusTotal Detection:** **52/71** security vendors flagged this file as malicious.
 *   **Popular Threat Label:** `trojan.tedy/usblep26`
 *   **Threat Categories:** `trojan`, `adware`, `pua`
-
+https://ibb.co/FbfVpnC9
 ### ⚠️ Technical Insights & Dynamic Analysis (VM Environment)
 
 1.  **DLL Hijacking Mechanism:** The malicious file is named `version.dll`. This is a classic technique where attackers replace a legitimate Windows system library with a malicious one. When the user runs the legitimate `FileZilla.exe` from the same folder, it loads the malicious `version.dll` instead, executing the attacker's code silently.
@@ -73,5 +77,5 @@ The investigation shows a clear escalation in malicious tactics on untrusted dow
 *   **Lesson Learned:** Always verify the source of your downloads. Official software is rarely distributed as ZIP archives containing loose DLL files alongside the executable. Download software ONLY from official developer websites.
 
 ## 🛡️ Security Note
-All dynamic analyses were conducted in an isolated Virtual Machine (VM) with network adapters disconnected (Host-Only or Internal Network) to prevent the samples from communicating with Command and Control (C2) servers and to prevent real data leakage.
+All dynamic analyses were conducted in an isolated Virtual Machine (VM) with network adapters disconnected (Host-Only or Internal Network) to prevent the samples from communicating with Command and Control (C2) servers and to prevent real data leakage.       
 
